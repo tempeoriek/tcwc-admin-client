@@ -5,7 +5,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 
 import TableView from '../views/TableView.vue'
-import DetailTropicalCyclone from '../views/DetailTropicalCyclone.vue'
+// import DetailTropicalCyclone from '../views/DetailTropicalCyclone.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +24,7 @@ const routes = [
     path: '/tropicalcyclone',
     name: 'TropicalCyclone',
     component: TableView,
-  }
+  },
   {
     path: '/cyclonename',
     name: 'CycloneName',
