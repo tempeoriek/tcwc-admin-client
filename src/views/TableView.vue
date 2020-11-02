@@ -132,6 +132,11 @@
 <script>
 import CycloneName from '@/api/CycloneNameApi'
 import TropicalCyclone from '@/api/TropicalCycloneApi'
+import CycloneOutlook from '@/api/CycloneOutlookApi'
+import AfterEventReport from '@/api/AfterEventReportApi'
+import AnnualReport from '@/api/AnnualReportApi'
+import Publication from '@/api/PublicationApi'
+import About from '@/api/AboutApi'
 
 export default {
   data() {
@@ -158,6 +163,16 @@ export default {
       this.Model = CycloneName
     } else if (this.$route.path == `/tropicalcyclone`) {
       this.Model = TropicalCyclone
+    } else if (this.$route.path == `/cycloneoutlook`) {
+      this.Model = CycloneOutlook
+    } else if (this.$route.path == `/report`) {
+      this.Model = AfterEventReport
+    } else if (this.$route.path == `/annual_report`) {
+      this.Model = AnnualReport
+    } else if (this.$route.path == `/publication`) {
+      this.Model = Publication
+    } else if (this.$route.path == `/about`) {
+      this.Model = About
     }
     this.getAllData();
   },
@@ -188,13 +203,13 @@ export default {
       this.currentPage = 1
     },
     onClicked(item) {
-      console.log(item._id)
-      this.$router.push({ name: `detail`, params: { _id: item._id } })
+      this.$router.push({name: `DetailTropicalCyclone`, params: { _id: item._id}})
     },
 
     getAllData: async function () {
       let res = await this.Model.getAllData();
       if(res.data.status == 200 && res.data.data) {
+        console.log(res.data)
         res.data.data.forEach((data) => {
           this.items.push(data)
         });
